@@ -18,5 +18,15 @@ public class Cart {
         items.add(item);
     }
 
+    public void removeItem(int index) {
+        items.remove(index);
+    }
 
+    public double getTotal() {
+        double total = 0.0;
+        for (CartItem item : items) {
+            total += item.getPrice() * item.getQuantity();
+        }
+        return total;
+    }
 }
