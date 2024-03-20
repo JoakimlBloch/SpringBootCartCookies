@@ -7,12 +7,14 @@
 </head>
 <body>
 
+    <div class="container">
+
     <h1>Indkøbskurv:</h1>
 
     <table>
 
         <thead>
-            <tr class="table-header">
+            <tr>
                 <th>Navn</th>
                 <th>Pris</th>
                 <th>Antal</th>
@@ -54,17 +56,19 @@
 
     <h1>Varer:</h1>
     <form method="post" th:action="@{/cart/add}">
-        <p class="add-item"><label>Navn:</label>
+        <p><label>Navn:</label>
         <input type="text" name="name" required></p>
 
-        <p class="add-item"><label>Pris:</label>
+        <p><label>Pris:</label>
         <input type="number" name="price" min="0" step="0.01" required></p>
 
-        <p class="add-item"><label>Antal:</label>
+        <p><label>Antal:</label>
         <input type="number" name="quantity" min="1" required></p>
 
         <button type="submit">Tilføj til indkøbskurv</button>
     </form>
+
+    </div>
 
 </body>
 </html>

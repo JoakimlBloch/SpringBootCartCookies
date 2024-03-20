@@ -9,6 +9,13 @@ body {
     justify-content: center;
 }
 
-th {
-    margin: 10px;
+th, td {
+    padding: 10px;
+}
+
+.container {
+    width: 100%;
+    margin: 200px auto 0 1380px;
+    padding: 20px;
+    align-content: center;
 }

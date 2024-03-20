@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.Locale;
+
 @Controller
 public class CartController {
     private static final String CART_SESSION_KEY = "cart";
@@ -35,13 +37,14 @@ public class CartController {
                                 @RequestParam double price,
                                 @RequestParam int quantity,
                                 HttpSession session) {
+
         CartItem item = new CartItem(name, price, quantity);
 
         Cart cart = (Cart)session.getAttribute(CART_SESSION_KEY);
 
         if (cart == null) {
             cart = new Cart();
-            return "redirect:/cart";
+            session.setAttribute(CART_SESSION_KEY, cart);
         }
 
         cart.addItem(item);
@@ -54,7 +57,6 @@ public class CartController {
         Cart cart = (Cart)session.getAttribute(CART_SESSION_KEY);
 
         if (cart == null) {
-            cart = new Cart();
             return "redirect:/cart";
         }
 
