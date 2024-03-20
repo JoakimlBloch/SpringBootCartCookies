@@ -12,7 +12,7 @@
     <table>
 
         <thead>
-            <tr>
+            <tr class="table-header">
                 <th>Navn</th>
                 <th>Pris</th>
                 <th>Antal</th>
@@ -30,12 +30,17 @@
 
 
             <td>
-                <form method="post" th:action=="@{/cart/remove}" th:object="${itemStat.index}">
+                <form method="post" th:action="@{/cart/remove}" th:object="${itemStat.index}">
                     <button type="submit">Fjern</button>
                     <input type="hidden" name="index" th:value="${itemStat.index}">
                 </form>
             </td>
 
+            </tr>
+
+            <tr>
+                <td colspan="3">Total:</td>
+                <td th:text="${total}"></td>
             </tr>
         </tbody>
 
@@ -48,14 +53,14 @@
     </p>
 
     <h1>Varer:</h1>
-    <form>
-        <p><label>Navn:</label>
+    <form method="post" th:action="@{/cart/add}">
+        <p class="add-item"><label>Navn:</label>
         <input type="text" name="name" required></p>
 
-        <p><label>Pris:</label>
+        <p class="add-item"><label>Pris:</label>
         <input type="number" name="price" min="0" step="0.01" required></p>
 
-        <p><label>Antal:</label>
+        <p class="add-item"><label>Antal:</label>
         <input type="number" name="quantity" min="1" required></p>
 
         <button type="submit">Tilføj til indkøbskurv</button>
