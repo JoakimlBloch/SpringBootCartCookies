@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.Locale;
-
 @Controller
 public class CartController {
     private static final String CART_SESSION_KEY = "cart";
